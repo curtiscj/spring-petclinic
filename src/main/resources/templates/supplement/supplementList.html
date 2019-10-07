@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout (~{::body},'supplements')}">
+<body>
+<h2>Supplements</h2>
+<table id="supplements" class="table table-striped">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="supplement : ${supplements}">
+        <td th:text="${supplement.name}"></td>
+        <td th:text="${supplement.price}"></td>
+    </tr>
+    </tbody>
+</table>
+<table class="table-buttons">
+    <tr>
+        <td><div><a th:href="@{/supplements.xml}">View as XML</a></div>
+        <td><div><a th:href="@{/supplements.json}">View as JSON</a></div></td>
+    </tr>
+</table>
+</body>
+</html>
